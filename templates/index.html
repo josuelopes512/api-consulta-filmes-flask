@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <style>
+        body {
+            padding: 0px
+        }
+        
+        #row {
+            margin: 0;
+        }
+    </style>
+    <title>Informações de Filmes</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Informações dos Filmes</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0" action="/pesquisar" method="post">
+                <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar" name="pesquisar_filme" id="pesquisar_filme">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar Filme</button>
+            </form>
+        </div>
+    </nav>
+    <br><br><br>
+
+    <div class="container" id="container">
+        <form action="/pesquisar" method="post">
+            <div class="row" id=row>
+                <div class=".col-sm-" <label for="pesquisar_filme">Digite o Nome do Filme:</label><br>
+                    <input type="text" id="pesquisar_filme" name="pesquisar_filme" class="form-control" placeholder="Nome do Filme"><br>
+                    <button type="submit" class="btn btn-outline-dark"> Verificar </button>
+                </div>
+            </div>
+        </form>
+        <br> 
+        {% if inexistente %}
+            <div class="alert alert-danger" role="alert">
+                {{erro}}
+            </div>
+        {% else %}
+        <li class="list-group-item">Nome do Filme: {{nome_filme}}</li>
+        <li class="list-group-item">Ano: {{ano}}</li>
+        <li class="list-group-item">Classificação: {{classificacao}}</li>
+        <li class="list-group-item">Tempo de Duração: {{duracao}}</li>
+
+        <li class="list-group-item">Genero: {{genero}}</li>
+        <li class="list-group-item">Diretor: {{diretor}}</li>
+        <li class="list-group-item">Elenco: {{elenco}}</li>
+        <li class="list-group-item">Resumo: {{resumo}}</li>
+        <br>
+        <center>
+            <img src="{{poster}}" alt="Poster" class="rounded ">
+        </center>
+        <br>
+
+        {% endif %}
+        <br><br><br>
+    </div>
+
+    <script src=" https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js " integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF " crossorigin="anonymous "></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js " integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns " crossorigin="anonymous "></script>
+</body>
+
+</html>
